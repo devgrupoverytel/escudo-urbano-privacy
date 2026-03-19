@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidad — Escudo Urbano</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --surface: #12161f;
+      --surface2: #181d29;
+      --border: #1f2637;
+      --accent: #f5a623;
+      --accent2: #e8623a;
+      --text: #e2e8f4;
+      --muted: #7a8499;
+      --shield: #1a2035;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Background grid */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Glow top */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(245,166,35,0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* HEADER */
+    header {
+      padding: 64px 0 48px;
+      text-align: center;
+      animation: fadeDown 0.8s ease both;
+    }
+
+    .shield-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: var(--shield);
+      border: 1.5px solid var(--accent);
+      border-radius: 18px;
+      margin-bottom: 24px;
+      box-shadow: 0 0 32px rgba(245,166,35,0.2), inset 0 0 20px rgba(245,166,35,0.05);
+    }
+
+    .shield-icon svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.3);
+      color: var(--accent);
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 15px;
+      font-weight: 300;
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 48px 0;
+    }
+
+    /* SECTIONS */
+    section {
+      margin-bottom: 40px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      animation: fadeUp 0.6s ease both;
+      transition: border-color 0.3s ease;
+    }
+
+    section:hover {
+      border-color: rgba(245,166,35,0.2);
+    }
+
+    section:nth-child(2) { animation-delay: 0.05s; }
+    section:nth-child(3) { animation-delay: 0.10s; }
+    section:nth-child(4) { animation-delay: 0.15s; }
+    section:nth-child(5) { animation-delay: 0.20s; }
+    section:nth-child(6) { animation-delay: 0.25s; }
+    section:nth-child(7) { animation-delay: 0.30s; }
+    section:nth-child(8) { animation-delay: 0.35s; }
+    section:nth-child(9) { animation-delay: 0.40s; }
+    section:nth-child(10) { animation-delay: 0.45s; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .section-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.25);
+      border-radius: 8px;
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 20px 0 10px;
+    }
+
+    p {
+      color: #b0bace;
+      font-size: 15px;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li {
+      color: #b0bace;
+      font-size: 15px;
+      font-weight: 300;
+      padding: 6px 0 6px 22px;
+      position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    ul li:last-child { border-bottom: none; }
+
+    ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.6;
+    }
+
+    /* TABLE */
+    .table-wrap {
+      overflow-x: auto;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-top: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    thead tr {
+      background: var(--surface2);
+    }
+
+    th {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    td {
+      padding: 12px 16px;
+      color: #b0bace;
+      font-weight: 300;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+    td a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    td a:hover { text-decoration: underline; }
+
+    td strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: var(--surface2);
+      border: 1px solid rgba(245,166,35,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: #b0bace;
+    }
+
+    .contact-row span.label {
+      color: var(--muted);
+      font-size: 12px;
+      min-width: 90px;
+      font-family: 'Syne', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 300;
+      animation: fadeUp 0.6s 0.6s ease both;
+    }
+
+    footer .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    footer .footer-logo span {
+      color: var(--accent);
+    }
+
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 24px 20px; }
+      header { padding: 48px 0 32px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="shield-icon">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L3 6.5V12c0 4.97 3.76 9.63 9 10.93C17.24 21.63 21 16.97 21 12V6.5L12 2Z" fill="rgba(245,166,35,0.15)" stroke="#f5a623" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M9 12l2 2 4-4" stroke="#f5a623" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="badge">Política de Privacidad</div>
+    <h1>Escudo <span>Urbano</span></h1>
+    <p class="subtitle">Última actualización: Marzo 2026</p>
+  </header>
+
+  <div class="divider"></div>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <h2>Información General</h2>
+    </div>
+    <p>Escudo Urbano es una aplicación de seguridad comunitaria desarrollada para facilitar la comunicación y respuesta ante emergencias en el entorno urbano.</p>
+    <p>Esta política describe cómo recolectamos, usamos y protegemos tu información personal. Al usar la aplicación, aceptas las prácticas descritas en este documento.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <h2>Datos que Recolectamos</h2>
+    </div>
+
+    <h3>Datos de registro</h3>
+    <ul>
+      <li>Número de teléfono (verificado mediante OTP)</li>
+      <li>Nombre de usuario</li>
+    </ul>
+
+    <h3>Datos de ubicación</h3>
+    <ul>
+      <li>Ubicación en tiempo real para alertas de emergencia y visualización en mapa comunitario</li>
+      <li>Se accede a la ubicación en segundo plano únicamente durante eventos de emergencia activos</li>
+    </ul>
+
+    <h3>Datos del dispositivo</h3>
+    <ul>
+      <li>Identificador del dispositivo</li>
+      <li>Sistema operativo y versión</li>
+      <li>Token de notificaciones push (Firebase Cloud Messaging)</li>
+    </ul>
+
+    <h3>Datos de uso</h3>
+    <ul>
+      <li>Registro de alertas enviadas y recibidas</li>
+      <li>Historial de incidentes reportados</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <h2>Cómo Usamos tus Datos</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Dato</th>
+            <th>Uso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Número de teléfono</strong></td>
+            <td>Autenticación OTP y notificaciones WhatsApp vía Twilio</td>
+          </tr>
+          <tr>
+            <td><strong>Ubicación</strong></td>
+            <td>Mostrar alertas cercanas y enviar tu posición en emergencias</td>
+          </tr>
+          <tr>
+            <td><strong>Token FCM</strong></td>
+            <td>Envío de notificaciones push de alertas comunitarias</td>
+          </tr>
+          <tr>
+            <td><strong>Datos de uso</strong></td>
+            <td>Mejorar el servicio y análisis de incidentes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <h2>Permisos del Dispositivo</h2>
+    </div>
+    <ul>
+      <li><strong style="color:var(--text)">Ubicación en primer y segundo plano:</strong> para activar alertas de emergencia con tu posición</li>
+      <li><strong style="color:var(--text)">Sensores (acelerómetro):</strong> para la función shake-to-activate de emergencia</li>
+      <li><strong style="color:var(--text)">Internet:</strong> para sincronización en tiempo real con el servidor</li>
+      <li><strong style="color:var(--text)">Notificaciones:</strong> para recibir alertas comunitarias en tiempo real</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <h2>Servicios de Terceros</h2>
+    </div>
+    <p>Escudo Urbano utiliza los siguientes servicios de terceros. No vendemos ni compartimos tus datos con fines comerciales.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Servicio</th>
+            <th>Propósito</th>
+            <th>Política</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Firebase (Google)</strong></td>
+            <td>Autenticación, base de datos, notificaciones push</td>
+            <td><a href="https://firebase.google.com/support/privacy" target="_blank">Ver política</a></td>
+          </tr>
+          <tr>
+            <td><strong>Twilio</strong></td>
+            <td>Notificaciones WhatsApp de emergencia</td>
+            <td><a href="https://www.twilio.com/legal/privacy" target="_blank">Ver política</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <h2>Retención de Datos</h2>
+    </div>
+    <ul>
+      <li>Los datos de cuenta se conservan mientras la cuenta esté activa</li>
+      <li>Los registros de alertas se conservan por <strong style="color:var(--text)">90 días</strong></li>
+      <li>Al eliminar tu cuenta, todos los datos son eliminados en un plazo máximo de <strong style="color:var(--text)">30 días</strong></li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">7</div>
+      <h2>Seguridad</h2>
+    </div>
+    <ul>
+      <li>Comunicaciones cifradas mediante HTTPS/TLS</li>
+      <li>Autenticación de dos pasos mediante OTP</li>
+      <li>Acceso restringido a la base de datos Firebase mediante reglas de seguridad</li>
+      <li>Sin almacenamiento local de contraseñas ni datos sensibles</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">8</div>
+      <h2>Derechos del Usuario</h2>
+    </div>
+    <p>Puedes en cualquier momento:</p>
+    <ul>
+      <li><strong style="color:var(--text)">Acceder</strong> a tus datos desde la configuración de la app</li>
+      <li><strong style="color:var(--text)">Eliminar</strong> tu cuenta y todos los datos asociados</li>
+      <li><strong style="color:var(--text)">Revocar</strong> permisos de ubicación desde la configuración de tu dispositivo</li>
+      <li><strong style="color:var(--text)">Solicitar</strong> una copia de tus datos contactándonos directamente</li>
+    </ul>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">9</div>
+      <h2>Menores de Edad</h2>
+    </div>
+    <p>Escudo Urbano no está dirigida a menores de 13 años. No recolectamos intencionalmente datos de menores de edad. Si detectamos que un menor ha proporcionado información personal, la eliminaremos de inmediato.</p>
+  </section>
+
+  <section>
+    <div class="section-header">
+      <div class="section-num">10</div>
+      <h2>Contacto</h2>
+    </div>
+    <p>Para consultas sobre privacidad o solicitud de eliminación de datos:</p>
+    <div class="contact-card">
+      <div class="contact-row">
+        <span class="label">Correo</span>
+        <span>tu-correo@dominio.com</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">Empresa</span>
+        <span>Grupo Verytel S.A.S.</span>
+      </div>
+      <div class="contact-row">
+        <span class="label">País</span>
+        <span>Colombia</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Escudo <span>Urbano</span></div>
+    <p>© 2026 Grupo Verytel S.A.S. — Todos los derechos reservados.</p>
+  </footer>
+
+</div>
+</body>
+</html>
